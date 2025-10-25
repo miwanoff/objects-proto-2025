@@ -11,6 +11,9 @@ function Dog(name, breed = "?", age = 0, weight = 0) {
     } else {
       alert("Цей собака, очевидно, ще не з'явився на світ...");
     }
+    this.toString = function () {
+      return `${this.name}, ${this.breed}, ${age_}`;
+    };
   };
 
   this.getAge = function () {
@@ -26,7 +29,7 @@ let dola = new Dog("Dola", "taxa", 6, 8);
 // console.log(fido.age);
 // fido.age_ = -8;
 fido.setAge(-9);
-
+alert(fido);
 // let dog = {
 //   name: "Rex",
 //   age: 15,
