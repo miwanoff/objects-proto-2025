@@ -1,9 +1,20 @@
 function Dog(name, breed = "?", age = 0, weight = 0) {
   this.name = name;
   this.breed = breed;
-  this.age = age;
+  let age_ = age;
   this.bark = function () {
     alert(this.name + " сказав Гав!");
+  };
+  this.setAge = function (a) {
+    if (a >= 0) {
+      age_ = a;
+    } else {
+      alert("Цей собака, очевидно, ще не з'явився на світ...");
+    }
+  };
+
+  this.getAge = function () {
+    return age_;
   };
 }
 
@@ -13,7 +24,8 @@ let spot = new Dog("Spot", "Chihuahua", 1, 3);
 let rex = new Dog("Rex", "bolonka", 4, 4);
 let dola = new Dog("Dola", "taxa", 6, 8);
 // console.log(fido.age);
-// fido.age = 8;
+// fido.age_ = -8;
+fido.setAge(-9);
 
 // let dog = {
 //   name: "Rex",
@@ -29,6 +41,8 @@ let dola = new Dog("Dola", "taxa", 6, 8);
 
 let dogs = [fido, fluffy, spot, rex, dola];
 for (let i = 0; i < dogs.length; i++) {
-  alert(dogs[i].name, dogs[i].breed, dogs[i].age);
-  dogs[i].bark();
+  if (dogs[i] instanceof Dog) {
+    alert(dogs[i].name, dogs[i].breed, dogs[i].getAge());
+    dogs[i].bark();
+  }
 }
